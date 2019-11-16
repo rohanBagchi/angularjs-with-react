@@ -1,6 +1,8 @@
-var todoApp = angular.module('todoApp', []);
+import angular from 'angular';
 
-todoApp.controller('TodoController', function($scope) {
+const todoApp = angular.module('todoApp', []);
+
+todoApp.controller('TodoController', $scope => {
     $scope.todos = [
         {
             id: 1,
@@ -14,15 +16,15 @@ todoApp.controller('TodoController', function($scope) {
         },
     ];
 
-    $scope.toggleComplete = function(todoID) {
-        $scope.todos.forEach(function(todo) {
+    $scope.toggleComplete = todoID => {
+        $scope.todos.forEach(todo => {
             if (todo.id === todoID) {
                 todo.isComplete = !todo.isComplete;
             }
         });
     };
 
-    $scope.addTodo = function() {
+    $scope.addTodo = () => {
         $scope.todos.push({
             id: $scope.todos.length + 1,
             text: $scope.todoText,
@@ -32,7 +34,7 @@ todoApp.controller('TodoController', function($scope) {
     };
     
     $scope.removeTodo = function(todoId) {
-        $scope.todos = $scope.todos.filter(function(todo) {
+        $scope.todos = $scope.todos.filter(todo => {
             if (todo.id !== todoId) return todo;
         });
     };
