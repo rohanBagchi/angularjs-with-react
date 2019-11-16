@@ -5,7 +5,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     mode: 'development',
     devtool: "inline-sourcemap",
-    entry: "./src/app.js",
+    entry: {
+        bundle: ["./src/app.js", "./src/reactDirective.js"],
+    },
     module: {
         loaders: [
             {

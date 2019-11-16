@@ -39,3 +39,5 @@ todoApp.controller('TodoController', $scope => {
         });
     };
 });
+
+export default todoApp;
